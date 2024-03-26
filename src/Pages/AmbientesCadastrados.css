@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+.AmbientesCadastrados {
+    margin-top: 20px;
+    text-align: center;
+    width: 100%; /* Define a largura da div mãe como 100% */
+}
+
+.input-container {
+    position: relative;
+    display: inline-block; 
+}
+
+.search-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    width: 250px; 
+    margin-top: 15px;
+    position: relative;
+}
+
+.main-text{
+    width: 100%;
+    max-width: 500px;
+    height: auto; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box; 
+    margin-left: 480px;
+}
+
+.lupa-image {
+    width: 20px; 
+    position: absolute;
+    top: 65%; 
+    transform: translateY(-50%);
+    right: 15px; 
+}
+
+.p1 {
+    text-align: justify;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: 0em;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+.p2 {
+    text-align: justify;
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0em;
+    color: #9d9d9d;
+    margin-top: 5px;
+    margin-left: 50px;
+}
+
+.p3 {
+    list-style: none;
+    text-align: center;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0em;
+    color: #888888;
+    margin-top: 5px;
+    max-width: 600px; 
+    text-align: center; 
+    margin: 0 auto; 
+}
+
+.p3 li {
+    margin-bottom: -9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.ambience-size > .ambience-name,
+.ambience-size > .ambience-brand {
+    color: black;
+}
+
+.ambience-info {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    background-color: #FFF8FC;
+    border-radius: 10px 10px 0 0; 
+    width: 300px;
+    height: 70px;
+}
+
+.ambience-info::after {
+    content: ""; 
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+    width: 100%;
+    height: 2px; 
+    background-color: #e7e6e6; 
+}
+
+.ambience-size {
+    margin-left: 20px; 
+    width: 180px;
+    margin-top: 12px;
+}
+
+.ambience-id {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.checkbox-custom {
+    display: none;
+}
+
+.checkbox-custom + label {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    cursor: pointer;
+    border: 1px solid #F0007B;
+    border-radius: 6px;
+    margin-right: 5px; 
+    left: 30px; 
+}
+
+.checkbox-custom:checked + label::after {
+    content: url('../Assets/check.png');
+    width: 15px; 
+    height: 10px; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+}
+
+.buttons-container-wrapper {
+    overflow: auto;
+    max-height: calc(100vh - 200px); 
+}
+
+.buttons-container {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 150px;
+}
+
+.add-button {
+    width: 100%;
+    max-width: 232px;
+    height: 36px;
+    border-radius: 30px;
+    border: 1px solid #D0D5DD; 
+    padding: 8px 32px 8px 32px;
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #ffffff;
+    text-align: center;
+    background-color: #FF3097;
+    cursor: pointer;
+    white-space: nowrap;
+    margin-top: 20px;
+    display: block;
+    margin: 0 auto; 
+    margin-bottom: 20px;
+}
+
+.remove-button {
+    width: 100%;
+    max-width: 232px;
+    height: 36px;
+    border-radius: 30px;
+    border: none; 
+    padding: 8px 32px 8px 32px;
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #D90075;
+    text-align: center;
+    background-color: #FEE3F1;
+    cursor: pointer;
+    white-space: nowrap;
+    margin-top: 20px;
+    display: block;
+    margin: 0 auto; 
+}
+
+.floating-button {
+    position: fixed;
+    top: calc(90vh - 100px); 
+    right: 20px; 
+    z-index: 999; 
+}
+
+.floating-button img {
+    width: 70px; 
+    height: 70px; 
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .main-text{
+        margin-left:-25px;
+    }
+    .floating-button {
+        top: calc(92vh - 100px); 
+    }
+
+    .buttons-container {
+        margin-top: 50px;
+        margin-bottom: 100px;
+    }
+
+    .add-button,
+    .remove-button {
+        width: 80%; 
+        margin-top: 20px;
+    }
+}

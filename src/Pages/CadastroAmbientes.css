@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+.cadastroAmbientes {
+    width: 100%;
+    max-width: 500px;
+    height: auto; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; 
+    box-sizing: border-box; 
+}
+
+h1 {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: #515151;
+    margin-bottom: 20px; 
+}
+
+.box-image{
+    margin: 20px 0px 30px 140px;
+    
+}
+
+.text-image{
+    justify-content: center;
+    align-items: center;
+    width:347px;
+    height: 181px;
+    background-color: #FFF8FC;
+    border-radius: 10px;
+}
+
+.warning-text{
+    width: 210px;
+    height: 51px;
+    text-indent: 20px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 17px;
+    color:#000000;
+    margin: 0px 36px 30px 38px;
+    padding: 4px 32px 14px 37px;
+}
+
+.input-ambienceName,
+.input-ambience-property{
+    width: 343px;  
+    max-width: 350px; 
+    margin-bottom: 20px; 
+    max-height: 100px;
+    display:flex;
+    flex-direction: column;
+}
+
+.input-ambienceName input,
+.input-ambience-property input,{
+    width: 343px; 
+    height: 44px;
+    border: 1px solid #D0D5DD;
+    border-radius: 10px;
+    padding: 10px 14px ; 
+    box-sizing: border-box; 
+    transition: box-shadow 0.3s ease;
+    overflow-y: auto;
+}
+
+.input-ambienceName input:focus,
+.input-ambience-property input:focus{
+    box-shadow: 0 0 0 3px rgba(243, 145, 194, 0.5); 
+    outline: none; 
+}
+
+
+.input-ambienceName label,
+.input-ambience-property label {
+    font-family: Inter;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #344054;
+    margin-bottom: 6px; 
+    margin-top:10px;
+}
+
+.button-container {
+    width: 100%;
+    max-width: 350px;
+    height: 36px;
+    overflow-x: auto;
+    margin-bottom: 100px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.input-ambienceName input::placeholder {
+    color: #b9b9b9d5; 
+    
+}
+
+.input-ambience-property input::placeholder {
+    color: #b9b9b9d5; 
+    
+}
+
+.cadastrar-amb-button {
+    width: 100%;
+    max-width: 250px;
+    height: 36px;
+    border-radius: 30px;
+    border: 1px solid #D0D5DD; 
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #ffffff;
+    text-align: center;
+    background-color: #FF3097;
+    cursor: pointer;
+    white-space: nowrap; 
+}
+
+@media screen and (max-width: 768px) {
+    .cadastroAmbientes {
+        padding: 10px; 
+    }
+
+    h1, .warning-text {
+        font-size: 15px; 
+    }
+
+    .input-ambienceName,
+    .input-ambience-property{
+        max-width: 80%;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .cadastroAmbientes {
+        max-width: 800px; 
+        margin: 0 auto; 
+    }
+
+    .input-ambienceName,
+    .input-ambience-property {
+        max-width: 400px; 
+    }
+}

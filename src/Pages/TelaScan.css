@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+.TelaScan {
+    margin-top: 20px;
+    text-align: center;
+    width: 100%; /* Define a largura da div mãe como 100% */
+}
+
+.input-container {
+    position: relative;
+    display: inline-block; 
+}
+
+.search-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    width: 250px; 
+    margin-top: 15px;
+    position: relative;
+}
+
+.lupa-image {
+    width: 20px; 
+    position: absolute;
+    top: 65%; 
+    transform: translateY(-50%);
+    right: 15px; 
+}
+
+.p1 {
+    text-align: justify;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: 0em;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+.p2 {
+    text-align: justify;
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0em;
+    color: #9d9d9d;
+    margin-top: 5px;
+    margin-left: 50px;
+}
+
+.p3 {
+    list-style: none;
+    text-align: center;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0em;
+    color: #888888;
+    margin-top: 5px;
+    max-width: 600px; /* Adicionado para limitar a largura máxima */
+    text-align: center; 
+    margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+.p3 li {
+    margin-bottom: -9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.device-size > .device-name,
+.device-size > .device-brand {
+    color: black;
+}
+
+.device-info {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    background-color: #FFF8FC;
+    border-radius: 10px 10px 0 0; /* Arredonda apenas as bordas superiores */
+    width: 300px;
+    height: 70px;
+}
+
+.device-info::after {
+    content: ""; /* Adiciona um pseudo-elemento para criar a borda inferior */
+    position: absolute;
+    bottom: 0; /* Posiciona o pseudo-elemento na parte inferior */
+    left: 0;
+    width: 100%;
+    height: 2px; /* Define a altura da borda inferior */
+    background-color: #e7e6e6; /* Cor da borda */
+}
+
+.device-size {
+    margin-left: 20px; /* Adiciona uma margem à esquerda para separar os spans dos labels */
+    width: 180px;
+    margin-top: 12px;
+}
+
+.device-id {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.checkbox-custom {
+    display: none;
+}
+
+.checkbox-custom + label {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    cursor: pointer;
+    border: 1px solid #F0007B;
+    border-radius: 6px;
+    margin-right: 5px; /* Adiciona margem à direita para separar os checkboxes */
+    left: 30px; /* Define a posição à esquerda dos spans */
+}
+
+.checkbox-custom:checked + label::after {
+    content: url('../Assets/check.png');
+    width: 15px; 
+    height: 10px; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centraliza o ícone dentro do checkbox */
+}
+
+.buttons-container-wrapper {
+    overflow: auto;
+    max-height: calc(100vh - 200px); /* Defina a altura máxima para que os botões sejam roláveis */
+}
+
+.buttons-container {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 150px;
+}
+
+.add-button {
+    width: 100%;
+    max-width: 232px;
+    height: 36px;
+    border-radius: 30px;
+    border: 1px solid #D0D5DD; 
+    padding: 8px 32px 8px 32px;
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #ffffff;
+    text-align: center;
+    background-color: #FF3097;
+    cursor: pointer;
+    white-space: nowrap;
+    margin-top: 20px;
+    display: block;
+    margin: 0 auto; /* Centraliza horizontalmente */
+    margin-bottom: 20px;
+}
+
+.remove-button {
+    width: 100%;
+    max-width: 232px;
+    height: 36px;
+    border-radius: 30px;
+    border: none; 
+    padding: 8px 32px 8px 32px;
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #D90075;
+    text-align: center;
+    background-color: #FEE3F1;
+    cursor: pointer;
+    white-space: nowrap;
+    margin-top: 20px;
+    display: block;
+    margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+.floating-button {
+    position: fixed;
+    top: calc(90vh - 100px); /* Altura fixa em relação ao topo da tela (100px do topo) */
+    right: 20px; /* Distância da borda direita da tela */
+    z-index: 999; /* Garante que o botão esteja acima de outros elementos */
+}
+
+.floating-button img {
+    width: 70px; 
+    height: 70px; 
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 600px) {
+    
+    .floating-button {
+        top: calc(92vh - 100px); 
+    }
+
+    .buttons-container {
+        margin-top: 50px;
+        margin-bottom: 100px;
+    }
+
+    .add-button,
+    .remove-button {
+        width: 80%; /* Define a largura dos botões como 80% da largura total */
+        margin-top: 20px;
+    }
+}

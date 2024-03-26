@@ -1,0 +1,121 @@
+.modal {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    max-height: 200px;
+    box-shadow: 0 0 10px rgba(129, 129, 129, 0.507);
+    z-index: 1001;
+    animation: slide-up 0.5s ease forwards;
+    display: none;
+  }
+  
+  @keyframes slide-up {
+    from {
+      bottom: -25%;
+    }
+    to {
+      bottom: 0;
+    }
+  }
+  
+  .modal.show {
+    display: block;
+  }
+  
+  /* Media query para versão web */
+  @media screen and (min-width: 769px) {
+    .modal {
+      top: 50%; /* Centraliza verticalmente */
+      bottom: auto;
+      transform: translate(-50%, -50%);
+    }
+  }
+  .modal-content {
+    text-align: center;
+  }
+  
+  .modal h2 {
+    margin-top: 30px; 
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: #000000;
+  }
+  
+  .modal h4 {
+    color: #A3A3A3;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 14px; 
+  }
+  
+  .checked-image {
+    width: 60px; 
+  }
+  
+  .image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; 
+  }
+  
+  .modal button {
+    width: 100%;
+    max-width: 120px;
+    height: 36px;
+    border-radius: 30px;
+    border: 1px solid #D0D5DD; 
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #ffffff;
+    text-align: center;
+    background-color: #FF3097;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #aaa;
+  }
+  
+  .close:hover {
+    color: #666;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .modal {
+      padding: 10px; 
+    }
+  
+    .modal h2 {
+      margin-top: 20px; 
+      font-size: 18px; 
+      line-height: 26px; 
+    }
+  
+    .modal h4 {
+      font-size: 12px; 
+    }
+  
+    .checked-image {
+      width: 40px; 
+    }
+  
+    .modal button {
+      max-width: 100px; 
+    }
+  }
