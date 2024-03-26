@@ -196,20 +196,6 @@
     margin: 0 auto; /* Centraliza horizontalmente */
 }
 
-.floating-button {
-    position: fixed;
-    top: calc(90vh - 100px); /* Altura fixa em relação ao topo da tela (100px do topo) */
-    right: 20px; /* Distância da borda direita da tela */
-    z-index: 999; /* Garante que o botão esteja acima de outros elementos */
-}
-
-.floating-button img {
-    width: 70px; 
-    height: 70px; 
-    cursor: pointer;
-}
-
-
 @media only screen and (max-width: 600px) {
     
     .floating-button {

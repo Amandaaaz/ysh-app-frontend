@@ -7,7 +7,7 @@ import ambientes from '../Assets/ambientes.png';
 import notification from '../Assets/notification.png';
 import homeActive from '../Assets/homeActive.png'; 
 
-function Footer({ setShowCadastroDispositivos, setShowCadastroAmbientes, setShowTelaScan, setIsDispositivosPageActive, isDispositivosPageActive }) { // Adicione isDispositivosPageActive como propriedade
+function Footer({ setShowCadastroDispositivos, setShowTelaScan, setIsDispositivosPageActive, isDispositivosPageActive }) { // Adicione isDispositivosPageActive como propriedade
   const [inicioAtivo, setInicioAtivo] = useState(false);
 
   const handleInicioClick = () => {
@@ -16,11 +16,6 @@ function Footer({ setShowCadastroDispositivos, setShowCadastroAmbientes, setShow
     setIsDispositivosPageActive(false);
     setInicioAtivo(true);
   };
-
-  const handleAmbientesClick = () => {
-    setShowCadastroAmbientes(true);
-  };
-  
 
   const handleDispositivosClick = () => {
     setShowCadastroDispositivos(false); // Evita mostrar a tela de cadastro de dispositivos quando clicado no footer "Dispositivos"
@@ -39,11 +34,10 @@ function Footer({ setShowCadastroDispositivos, setShowCadastroAmbientes, setShow
         <img src={isDispositivosPageActive ? dispositivoActive : dispositivo} alt="Ícone 2" />
         <p style={{ color: isDispositivosPageActive ? '#FF3097' : '' }}>Dispositivos</p>
       </div>
-      <div className="footer-item" onClick={handleAmbientesClick}>
+      <div className="footer-item">
         <img src={ambientes} alt="Ícone 3" />
-        <p style={{ color: isDispositivosPageActive ? '#FF3097' : '' }}>Ambientes</p>
+        <p>Ambiente</p>
       </div>
-
       <div className="footer-item">
         <img src={notification} alt="Ícone 4" />
         <p>Notificações</p>

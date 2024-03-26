@@ -4,7 +4,6 @@ import LupaImage from '../Assets/Lupa.png';
 import lampadaImage from '../Assets/lampada.png';
 import arCondicionadoImage from '../Assets/ar condicionado.png';
 import fechaduraImage from '../Assets/fechadura.png';
-import FloatingButtonImage from '../Assets/floating button.png'; // Importe a imagem aqui
 
 function DispositivosCadastrados({ dispositivos }) {
     const [searchText, setSearchText] = useState('');
@@ -47,10 +46,6 @@ function DispositivosCadastrados({ dispositivos }) {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
-
-    const handleFloatingButtonClick = () => {
-        // Aqui você pode adicionar a lógica que deseja quando o botão "floating" é clicado
-    };
 
     return (
         <div className="TelaScan">
@@ -98,10 +93,6 @@ function DispositivosCadastrados({ dispositivos }) {
                     </div>
                 </div>
             )}
-            {/* Botão Floating */}
-            <div className="floating-button" onClick={handleFloatingButtonClick}>
-                <img src={FloatingButtonImage} alt="Floating Button" />
-            </div>
         </div>
     );
 }
