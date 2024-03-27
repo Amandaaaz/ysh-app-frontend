@@ -4,18 +4,28 @@ import LupaImage from '../Assets/Lupa.png';
 import lampadaImage from '../Assets/lampada.png';
 import arCondicionadoImage from '../Assets/ar condicionado.png';
 import fechaduraImage from '../Assets/fechadura.png';
+import ModalRemover from '../Modal/ModalRemover'; // Importe o componente ModalRemover
 
 function DispositivosCadastrados({ dispositivos }) {
     const [searchText, setSearchText] = useState('');
     const [selectedDevice, setSelectedDevice] = useState(null);
     const [isDeviceVisible, setIsDeviceVisible] = useState(false);
+    const [showModalRemover, setShowModalRemover] = useState(false); // Estado para controlar se o modal de remoção deve ser exibido
     const deviceInfoRef = useRef(null);
+    const [labelAfterActivated, setLabelAfterActivated] = useState(false); // Estado para controlar se o label::after está ativado
 
     const toggleDeviceSelection = (deviceID) => {
         if (selectedDevice === deviceID) {
             setSelectedDevice(null); // Desmarca o checkbox se já estiver selecionado
         } else {
             setSelectedDevice(deviceID); // Marca o checkbox selecionado
+        }
+    };
+
+    // Função para lidar com o clique no botão de remover
+    const handleRemoveButtonClick = () => {
+        if (labelAfterActivated) {
+            setShowModalRemover(true); // Ativa o modal de remoção se o label::after estiver ativado
         }
     };
 
@@ -72,7 +82,7 @@ function DispositivosCadastrados({ dispositivos }) {
                                 onChange={() => toggleDeviceSelection(dispositivo.deviceID)}
                                 id={`checkbox-${dispositivo.deviceID}`}
                             />
-                            <label htmlFor={`checkbox-${dispositivo.deviceID}`}></label>
+                            <label htmlFor={`checkbox-${dispositivo.deviceID}`} onClick={() => setLabelAfterActivated(true)}></label>
                             <div className='device-size'>
                                 <span className="device-name">#{dispositivo.deviceName}</span>
                                 <span className="device-brand"> {dispositivo.deviceBrand}</span>
@@ -89,10 +99,11 @@ function DispositivosCadastrados({ dispositivos }) {
                 <div className="buttons-container-wrapper">
                     <div className="buttons-container">
                         <button className="add-button">Adicionar a um ambiente</button>
-                        <button className="remove-button">Remover</button>
+                        <button className="remove-button" onClick={handleRemoveButtonClick}>Remover</button>
                     </div>
                 </div>
             )}
+            {showModalRemover && <ModalRemover onClose={() => setShowModalRemover(false)} />}
         </div>
     );
 }
