@@ -1,43 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import '../Modal/ModalAmbientes';
 import './CadastroAmbientes.css';
-import '../index.css';
 import BoxImage from "../Assets/Vector.png";
-import ModalAmbientes from '../Modal/ModalAmbientes';
+import ModalAmbientes from '../Modal/ModalAmbientes'; 
 
-function CadastroAmbientes({ onCadastro }) {
-    const [showModal, setShowModal] = useState(false);
+function CadastroAmbientes() {
     const [ambienceName, setAmbienceName] = useState('');
     const [ambienceProperty, setAmbienceProperty] = useState('');
-
-    // Estados para rastrear a validade dos campos
     const [ambienceNameValid, setAmbienceNameValid] = useState(false);
     const [ambiencePropertyValid, setAmbiencePropertyValid] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
-        // Verifica se os campos estão preenchidos e define a validade
         setAmbienceNameValid(ambienceName.trim() !== '');
         setAmbiencePropertyValid(ambienceProperty.trim() !== '');
     }, [ambienceName, ambienceProperty]);
 
-    // Verifica se todos os campos são válidos
     const formValid = ambienceNameValid && ambiencePropertyValid;
-
-    const handleCadastrar = () => {
-        // Verifica se todos os campos são válidos antes de prosseguir
-        if (formValid) {
-            const novoAmbiente = {
-                ambienceName,
-                ambienceProperty
-            };
-            onCadastro(novoAmbiente);
-            setShowModal(true);
-        }
-    };
-
-    const handleCloseModal = () => {
-        setShowModal(false);
-    };
 
     const handleInputChange = (e, setter) => {
         const value = e.target.value;
@@ -53,32 +31,37 @@ function CadastroAmbientes({ onCadastro }) {
             e.target.style.color = '';
         }
     };
+
+    const handleCadastro = () => {
+        if (formValid) {
+            setShowModal(true);
+        }
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false);
+        window.location.href = '/AmbientesCadastrados.js';
+    };
     
     return (
-        <div>
-            {showModal ? (
-                <ModalAmbientes onClose={handleCloseModal} />
-            ) : (
-                <div className="cadastroAmbientes">
-                    <h1>Cadastrar Ambiente</h1>
-                    <div className="text-image">
-                    <img src={BoxImage} alt="imagem em vetor de uma caixa sem tampa" className="box-image"/> 
-                    <p className="warning-text">Faça upload de apenas uma imagem, nos formatos jpg ou png com no máximo de 10MB</p>         
-                    </div>
-                    <div className='input-ambienceName'>
-                        <label htmlFor='input-ambienceName'>Nome do ambiente</label>
-                        <input type="text" id="input-ambienceName" placeholder="Digite o Nome do ambiente" onChange={(e) => handleInputChange(e, setAmbienceName)} onBlur={handleInputBlur}/>
-                    </div>
-                    <div className='input-ambience-property'>
-                        <label htmlFor='input-ambience-property'>Propriedade</label>
-                        <input type="text" id="input-ambience-property" placeholder="Escolha uma propriedade" onChange={(e) => handleInputChange(e, setAmbienceProperty)} onBlur={handleInputBlur}/>
-                    </div>      
-                    <div className="button-container">
-                <button className={`cadastrar-amb-button ${formValid ? 'valid' : ''}`} onClick={handleCadastrar} disabled={!formValid}>Cadastrar ambiente</button>
+        <div className="cadastroAmbientes">
+            <h1>Cadastrar Ambiente</h1>
+            <div className="text-image">
+                <img src={BoxImage} alt="imagem em vetor de uma caixa sem tampa" className="box-image"/> 
+                <p className="warning-text">Faça upload de apenas uma imagem, nos formatos jpg ou png com no máximo de 10MB</p>         
             </div>
-        </div>
-                
-            )}
+            <div className='input-ambienceName'>
+                <label htmlFor='input-ambienceName'>Nome do ambiente</label>
+                <input type="text" id="input-ambienceName" placeholder="Digite o Nome do ambiente" onChange={(e) => handleInputChange(e, setAmbienceName)} onBlur={handleInputBlur}/>
+            </div>
+            <div className='input-ambience-property'>
+                <label htmlFor='input-ambience-property'>Propriedade</label>
+                <input type="text" id="input-ambience-property" placeholder="Escolha uma propriedade" onChange={(e) => handleInputChange(e, setAmbienceProperty)} onBlur={handleInputBlur}/>
+            </div>      
+            <div className="button-container">
+                <button className={`cadastrar-amb-button ${formValid ? 'valid' : ''}`} disabled={!formValid} onClick={handleCadastro}>Cadastrar ambiente</button>
+            </div>
+            {showModal && <ModalAmbientes onCloseModal={handleCloseModal}>Cadastro realizado com sucesso!</ModalAmbientes>}
         </div>
     );
 }
